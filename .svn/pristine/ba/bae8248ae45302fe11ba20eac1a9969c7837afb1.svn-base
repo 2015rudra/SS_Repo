@@ -1,0 +1,4 @@
+url = http://172.17.30.208:3000/
+username = Admin
+password = admin123
+browser = chrome

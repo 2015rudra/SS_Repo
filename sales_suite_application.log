@@ -1,0 +1,16 @@
+2020-08-13 01:42:30,055  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-08-13 01:42:30,109  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-08-13 01:42:30,129  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-08-13 01:42:30,134  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-08-13 01:42:30,139  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-08-13 01:42:30,143  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-08-13 01:42:44,477  INFO [main] devpinoyLogger:82 - Loading Chrome Browser
+2020-08-13 01:43:05,966  INFO [main] devpinoyLogger:84 - Getting Application URL
+2020-08-13 01:43:05,977  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-08-13 01:43:06,085  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-08-13 01:43:06,145  INFO [main] devpinoyLogger:51 - Initiating Login Page Object
+2020-08-13 01:43:06,147  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-08-13 01:43:06,151  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-08-13 01:43:06,151  INFO [main] devpinoyLogger:53 - Initiating Dashboard Page Object
+2020-08-13 01:43:06,151  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-08-13 01:43:06,151  INFO [main] devpinoyLogger:55 - Initiating TestUtil Page Object

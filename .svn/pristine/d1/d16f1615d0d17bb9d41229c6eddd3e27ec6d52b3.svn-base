@@ -1,0 +1,204 @@
+package pages;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import config.GlobalThings;
+import testBase.TestBase;
+import utility.TestUtil;
+
+public class ProductSalesPage extends TestBase
+
+{
+	TestUtil util;
+	WebDriverWait wait;
+	DashBoardPage dashboard;
+	
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	
+	
+	
+	
+	@FindBy(xpath="//div[contains(text(),'Product Sales')]")
+	WebElement productSalesHeader;
+	
+	
+	@FindBy(xpath="//button[text()='Export']")
+	WebElement productSalesExportButton;
+	
+	
+	
+	public ProductSalesPage() throws IOException 
+	{
+		super();
+		PageFactory.initElements(driver, this);
+		util = new TestUtil();
+		dashboard = new DashBoardPage();
+	}
+	
+	
+	public boolean confirmProductSales() 
+	{
+		util.waitForAnObject(driver, productSalesHeader, GlobalThings.microWait);
+		return productSalesHeader.isDisplayed();
+	}
+	
+	
+	public boolean confirmIfProductSalesTableLoaded() 
+	{
+		WebElement data = driver.findElement(By.xpath("//div[@class='rt-tbody']/div"));
+		util.waitForAnObject(driver, data, GlobalThings.microWait);
+		return data.isDisplayed();
+	}
+	
+	
+	public ArrayList<String> getProductSales_SearchParameters() 
+	{
+		List<WebElement> links = driver.findElements(By.xpath("//p[@class='card-category']"));
+		int cnt = links.size();
+		ArrayList<String> searchNames = new ArrayList<String>();
+		for(int i=1; i<= cnt; i++) 
+		{
+			WebElement searchText = driver.findElement(By.xpath("(//p[@class='card-category'])["+i+"]"));
+			//js.executeScript("arguments[0].scrollIntoView();", searchText);
+			String text = searchText.getText().trim();	
+			
+			searchNames.add(text);
+		}
+			
+		return searchNames;
+		
+	}
+	
+	
+	public ArrayList<String> getRegionDropdownValues() 
+	{
+		List<WebElement> links = driver.findElements(By.xpath("//p[text()='Region']//parent::div//parent::div//select//option"));
+		int cnt = links.size();
+		ArrayList<String> regionValues = new  ArrayList<String>();
+
+		for (int i=1; i<=cnt; i++) 
+		{
+			WebElement text = driver.findElement(By.xpath("//p[text()='Region']//parent::div//parent::div//select//option["+i+"]"));
+			regionValues.add(text.getText().trim());
+		}
+
+		return regionValues;
+	}
+	
+	public ArrayList<String> getCountryDropdownValues() 
+	{
+		List<WebElement> links = driver.findElements(By.xpath("//p[text()='Country']//parent::div//parent::div//select//option"));
+		int cnt = links.size();
+		ArrayList<String> countryValues = new  ArrayList<String>();
+
+		for (int i=1; i<=cnt; i++) 
+		{
+			WebElement text = driver.findElement(By.xpath("//p[text()='Country']//parent::div//parent::div//select//option["+i+"]"));
+			countryValues.add(text.getText().trim());
+		}
+
+		return countryValues;
+	}
+	
+	public ArrayList<String> getProfileCenterDropdownValues() 
+	{
+		List<WebElement> links = driver.findElements(By.xpath("//p[text()='Profile Center']//parent::div//parent::div//select//option"));
+		int cnt = links.size();
+		ArrayList<String> profileCenterValues = new  ArrayList<String>();
+
+		for (int i=1; i<=cnt; i++) 
+		{
+			WebElement text = driver.findElement(By.xpath("//p[text()='Profile Center']//parent::div//parent::div//select//option["+i+"]"));
+			//System.out.println(text.getText().trim());
+			profileCenterValues.add(text.getText().trim());
+		}
+
+		return profileCenterValues;
+	}
+	
+	public ArrayList<String> getProductStatusDropdownValues() 
+	{
+		List<WebElement> links = driver.findElements(By.xpath("//p[text()='Product Status']//parent::div//parent::div//select//option"));
+		int cnt = links.size();
+		ArrayList<String> regionValues = new  ArrayList<String>();
+
+		for (int i=1; i<=cnt; i++) 
+		{
+			WebElement text = driver.findElement(By.xpath("//p[text()='Product Status']//parent::div//parent::div//select//option["+i+"]"));
+			//System.out.println(text.getText().trim());
+			regionValues.add(text.getText().trim());
+		}
+
+		return regionValues;
+	}
+	
+	public ArrayList<String> getMarketSegmenetDropdownValues() 
+	{
+		List<WebElement> links = driver.findElements(By.xpath("//p[text()='Market Segment']//parent::div//parent::div//select//option"));
+		int cnt = links.size();
+		ArrayList<String> regionValues = new  ArrayList<String>();
+
+		for (int i=1; i<=cnt; i++) 
+		{
+			WebElement text = driver.findElement(By.xpath("//p[text()='Market Segment']//parent::div//parent::div//select//option["+i+"]"));
+			//System.out.println(text.getText().trim());
+			regionValues.add(text.getText().trim());
+		}
+
+		return regionValues;
+	}
+	
+	public ArrayList<String> getDistributorDropdownValues() 
+	{
+		List<WebElement> links = driver.findElements(By.xpath("//p[text()='Distributor']//parent::div//parent::div//select//option"));
+		int cnt = links.size();
+		ArrayList<String> regionValues = new  ArrayList<String>();
+
+		for (int i=1; i<=cnt; i++) 
+		{
+			WebElement text = driver.findElement(By.xpath("//p[text()='Distributor']//parent::div//parent::div//select//option["+i+"]"));
+			//System.out.println(text.getText().trim());
+			regionValues.add(text.getText().trim());
+		}
+
+		return regionValues;
+	}
+	
+	public ArrayList<String> getProductDropdownValues() 
+	{
+		List<WebElement> links = driver.findElements(By.xpath("//p[text()='Product']//parent::div//parent::div//select//option"));
+		int cnt = links.size();
+		ArrayList<String> regionValues = new  ArrayList<String>();
+
+		for (int i=1; i<=cnt; i++) 
+		{
+			WebElement text = driver.findElement(By.xpath("//p[text()='Product']//parent::div//parent::div//select//option["+i+"]"));
+			//System.out.println(text.getText().trim());
+			regionValues.add(text.getText().trim());
+		}
+
+		return regionValues;
+	}
+	
+	public void ExportProductSales() throws InterruptedException 
+	{
+		dashboard.cleanUpDownloadFolder();
+		util.waitForAnObject(driver, productSalesExportButton, GlobalThings.microWait);
+		productSalesExportButton.click();
+		Thread.sleep(7000);
+	}
+	
+	
+	
+	
+
+}

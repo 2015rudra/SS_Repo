@@ -1,0 +1,680 @@
+package pages;
+
+import static org.testng.Assert.assertEquals;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import config.GlobalThings;
+import testBase.TestBase;
+import utility.TestUtil;
+
+public class DashBoardPage extends TestBase
+{
+
+	String downloadPath = "D:\\Sales_Suite_Download";
+
+	//Graph Excel Path and Names
+	String productExcelPath = "D:\\Sales_Suite_Download\\Products.xlsx";
+	String itemExcelPath = "D:\\Sales_Suite_Download\\Items.xlsx";
+	String consumablesExcelPath = "D:\\Sales_Suite_Download\\Consumable ItemTypes.xlsx";
+	String distributorExcelPath = "D:\\Sales_Suite_Download\\Distributors.xlsx";
+	String countryExcelPath = "D:\\Sales_Suite_Download\\Countries.xlsx";
+	String regionExcelPath = "D:\\Sales_Suite_Download\\Regions.xlsx";
+	String unitStatusExcelPath = "D:\\Sales_Suite_Download\\UnitStatus.xlsx";
+	String marketSegmentExcelPath = "D:\\Sales_Suite_Download\\MarketSegments.xlsx";
+	String applicationSegmentExcelPath = "D:\\Sales_Suite_Download\\ApplicationSegments.xlsx";
+
+
+
+	TestUtil util;
+	WebDriverWait wait;
+
+
+	@FindBy(xpath="//p[contains(text(),'Start Date')]")
+	WebElement startDate;
+
+	@FindBy(xpath="//p[contains(text(),'End Date')]")
+	WebElement endDate;
+
+	@FindBy(xpath="//p[contains(text(),'Profile Center')]")
+	WebElement profileCenter;
+
+	@FindBy(xpath="//p[contains(text(),'Product Status')]")
+	WebElement productStatus;
+
+	@FindBy(xpath="//div[@class='navbar-brand'])[1]")
+	WebElement dashBoardStatus;
+
+	@FindBy(xpath="//a//p[contains(text(),'LOGOUT')]")
+	WebElement logoutMenu;
+
+	@FindBy(xpath="//h5[text()='Units by Product']/parent::div/parent::div//div[@class='card-body']//button[@data-tip='Show Table']")
+	WebElement UnitByProduct_Show_Table_Button;
+
+	@FindBy(xpath="//button[text()='Export']")
+	WebElement tableExportButton;
+
+	//Product
+	@FindBy(xpath="//div[@class='rt-tfoot']//div[@class='rt-td'][2]//span")
+	WebElement previousYearForUnitsByProduct;
+
+	@FindBy(xpath="//div[@class='rt-tfoot']//div[@class='rt-td'][3]//span")
+	WebElement currentYearForUnitsByProduct;
+
+	//Item By Description
+	@FindBy(xpath="//h5[text()='Units by Item Description']/parent::div/parent::div//div[@class='card-body']//button[@data-tip='Show Table']")
+	WebElement ItemByDescription_Show_Table_Button;
+
+	//Item By Consumables
+	@FindBy(xpath="//h5[text()='Units by Consumables']/parent::div/parent::div//div[@class='card-body']//button[@data-tip='Show Table']")
+	WebElement ItemByConsumables_Show_Table_Button;
+
+	//Item By Distributor
+	@FindBy(xpath="//h5[text()='Units by Distributor']/parent::div/parent::div//div[@class='card-body']//button[@data-tip='Show Table']")
+	WebElement ItemByDistributor_Show_Table_Button;
+
+	//Item By Countries
+	@FindBy(xpath="//h5[text()='Units by Country']/parent::div/parent::div//div[@class='card-body']//button[@data-tip='Show Table']")
+	WebElement ItemByCountries_Show_Table_Button;
+	
+	//Item By Region
+		@FindBy(xpath="//h5[text()='Units by Region']/parent::div/parent::div//div[@class='card-body']//button[@data-tip='Show Table']")
+		WebElement ItemByRegion_Show_Table_Button;
+		
+		//Item By Unit Status
+		@FindBy(xpath="//h5[text()='Units by Unit Status']/parent::div/parent::div//div[@class='card-body']//button[@data-tip='Show Table']")
+		WebElement ItemByUnitStatus_Show_Table_Button;
+		
+		//Item By Market Segment
+		@FindBy(xpath="//h5[text()='Units by Market Segment']/parent::div/parent::div//div[@class='card-body']//button[@data-tip='Show Table']")
+		WebElement ItemByMarketSegment_Show_Table_Button;
+		
+		//Item By Application Segment
+		@FindBy(xpath="//h5[text()='Units by Application Segment']/parent::div/parent::div//div[@class='card-body']//button[@data-tip='Show Table']")
+		WebElement ItemByApplicationSegment_Show_Table_Button;
+
+
+	@FindBy(xpath="//div[@class='rt-tfoot']//div[@class='rt-td'][4]//span")
+	WebElement previousYearForItemByDescription;
+
+	@FindBy(xpath="//div[@class='rt-tfoot']//div[@class='rt-tr']//div[2]//span")
+	WebElement unitsForConsumables;
+
+
+	@FindBy(xpath="//div[@class='rt-tfoot']//div[@class='rt-tr']//div[3]/span")
+	WebElement unitsForDistributor;
+	
+	@FindBy(xpath="//div[@class='rt-tfoot']//div[@class='rt-tr']//div[3]/span")
+	WebElement unitsForCountry;
+	
+	
+	//Need to add path for Units by Region and Unit Status
+	
+	@FindBy(xpath="//div[@class='rt-tfoot']//div[@class='rt-tr']//div[2]/span")
+	WebElement unitsForMarketSegment;
+	
+	@FindBy(xpath="//div[@class='rt-tfoot']//div[@class='rt-tr']//div[2]/span")
+	WebElement unitsForApplicationSegment;
+
+	@FindBy(xpath="//div[@class='rt-tfoot']//div[@class='rt-td'][5]//span")
+	WebElement currentYearForItemByDescription;
+
+
+	//Links
+	@FindBy(xpath="//a//p[text()='PRODUCT SALES']")
+	WebElement productSalesLink;
+
+	@FindBy(xpath="//a//p[text()='YOY']")
+	WebElement YOYLink;
+
+	@FindBy(xpath="//a//p[text()='CONFIGURATION']")
+	WebElement ConfigurationLink;
+
+	@FindBy(xpath="//a//p[text()='ABOUT']")
+	WebElement aboutLink;
+
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+
+
+	public DashBoardPage() throws IOException 
+	{
+		super();
+		PageFactory.initElements(driver, this);
+		util = new TestUtil();
+	}
+
+
+	public boolean verifyLoginSuccessfull() 
+	{
+		return logoutMenu.isDisplayed();
+	}
+
+	public void verifyAllLinksWorking() throws IOException, InterruptedException 
+	{
+		List<WebElement> links = driver.findElements(By.xpath("//a[@class='nav-link nav-link']"));
+		int linkCount = links.size();
+		for (int i = 2; i<=linkCount-1; i++) 
+		{
+			String linkName = driver.findElement(By.xpath("//a[@class='nav-link nav-link']["+i+"]")).getText().trim();
+			driver.findElement(By.xpath("//a[@class='nav-link nav-link']["+i+"]")).click();
+			String textOnPage = driver.findElement(By.xpath("//div[@class='navbar-brand']")).getText().trim();
+			if(linkName.equalsIgnoreCase(textOnPage)) 
+			{
+				System.out.println(linkName + " " + " Page loaded Successfully");
+				Thread.sleep(3000);
+			}
+			else
+			{
+				System.out.println(linkName + " "+" Page not loaded Successfully");
+			}
+		}
+	}
+
+	public ProductSalesPage navigateOnProductSales() throws IOException, InterruptedException 
+	{
+		util.waitForAnObject(driver, productSalesLink, GlobalThings.microWait);
+		productSalesLink.click();
+		Thread.sleep(3000);
+
+		return new ProductSalesPage();
+	}
+
+	public YOYPage navigateOnYOY() throws IOException, InterruptedException 
+	{
+		util.waitForAnObject(driver, YOYLink, GlobalThings.microWait);
+		YOYLink.click();
+		Thread.sleep(3000);
+
+		return new YOYPage();
+	}
+
+
+	public ConfigurationPage navigateOnConfiguration() throws IOException, InterruptedException 
+	{
+		util.waitForAnObject(driver, ConfigurationLink, GlobalThings.microWait);
+		ConfigurationLink.click();
+		Thread.sleep(3000);
+
+		return new ConfigurationPage();
+	}
+
+	public AboutPage navigateOnAbout() throws IOException, InterruptedException 
+	{
+		util.waitForAnObject(driver, aboutLink, GlobalThings.microWait);
+		aboutLink.click();
+		Thread.sleep(3000);
+
+		return new AboutPage();
+	}
+
+
+	public ArrayList<String> getSearchParameter() 
+	{
+		ArrayList<String> ar = new ArrayList<String>();
+		String dateStart = startDate.getText().trim();
+		String dateEnd = endDate.getText().trim();
+		String profileCenters = profileCenter.getText().trim();
+		String prodStat = productStatus.getText().trim();
+
+
+		ar.add(dateStart);
+		ar.add(dateEnd);
+		ar.add(profileCenters);
+		ar.add(prodStat);
+		return ar;
+	}
+
+	public ArrayList<String> verifySearchParameters() 
+	{
+		ArrayList<String> br = getSearchParameter();
+		return br;
+
+	}
+
+	public ArrayList<Boolean> graphsOnDashboard() 
+	{
+
+		boolean flag = false;
+		List<WebElement> graphs = driver.findElements(By.xpath("//div[@class='card-header']"));
+		int graphcount = graphs.size();
+		ArrayList<Boolean> status = new ArrayList<Boolean>();
+
+		for (int i = 1; i<= graphcount; i++ ) 
+		{
+
+			WebElement graph = driver.findElement(By.xpath("(//div[@class='card-header'])["+i+"]"));
+			js.executeScript("arguments[0].scrollIntoView();", graph);
+			flag = graph.isDisplayed();	
+
+			status.add(flag);
+		}
+
+		return status;
+
+	}
+
+
+	public ArrayList<String> getGraphTitle() 
+	{
+
+		List<WebElement> graphs = driver.findElements(By.xpath("//div[@class='card-header']"));
+		int graphcount = graphs.size();
+		ArrayList<String> graphNames = new ArrayList<String>();
+
+		for (int i = 1; i<= graphcount; i++ ) 
+		{
+
+			WebElement graphText = driver.findElement(By.xpath("(//div[@class='card-header'])["+i+"]//h5"));
+			js.executeScript("arguments[0].scrollIntoView();", graphText);
+			String text = graphText.getText().trim();	
+			//System.out.println(text);
+			graphNames.add(text);
+
+		}
+
+		return graphNames;
+
+	}
+
+
+	public ArrayList<String> getProfileCenterValues() 
+	{
+
+		List<WebElement> profileCenterValues = driver.findElements(By.xpath("//select[@id='lang']//option"));
+		int cnt = profileCenterValues.size();
+		ArrayList<String> profileValues = new  ArrayList<String>();
+
+		for (int i=1; i<=cnt; i++) 
+		{
+			WebElement text = driver.findElement(By.xpath("//select[@id='lang']//option["+i+"]"));
+			profileValues.add(text.getText().trim());
+		}
+
+		return profileValues;
+	}
+
+	public ArrayList<String> getProductStatusValues() 
+	{
+
+		List<WebElement> productStatusValues = driver.findElements(By.xpath("(//select)[2]//option"));
+		int cnt = productStatusValues.size();
+		ArrayList<String> productValues = new  ArrayList<String>();
+
+		for (int i=1; i<=cnt; i++) 
+		{
+			WebElement text = driver.findElement(By.xpath("(//select)[2]//option["+i+"]"));
+			productValues.add(text.getText().trim());
+		}
+
+		return productValues;
+	}
+
+
+	public void clickanddownloadGraphImage() throws InterruptedException 
+	{
+		List<WebElement> saveImageButtons = driver.findElements(By.xpath("(//button[@data-tip='Save Image'])"));
+
+		int cnt = saveImageButtons.size();
+
+		for(int i=1; i<= cnt; i++) 
+		{
+			WebElement button = driver.findElement(By.xpath("(//button[@data-tip='Save Image'])["+i+"]"));
+			js.executeScript("arguments[0].scrollIntoView();", button);
+			button.click();
+			Thread.sleep(4000);
+
+		}
+	}
+
+
+
+	public void cleanUpDownloadFolder() 
+	{
+		//flag = TestUtil.isFileDownloaded_Ext(downloadPath,".png");
+		//System.out.println(flag);
+		TestUtil.clearDownloadedFolder(downloadPath);
+	}
+
+	public ArrayList<String> getFileNames() 
+	{
+		ArrayList<String> a = TestUtil.getFileNames(downloadPath);
+		return a;
+	}
+
+	public void clickOnShowTableButton() throws InterruptedException 
+	{
+		List<WebElement> showTableButton = driver.findElements(By.xpath("//button[@data-tip='Show Table']"));
+
+		int cnt = showTableButton.size();
+
+		for(int i=1; i<= cnt; i++) 
+		{
+			WebElement button = driver.findElement(By.xpath("(//button[@data-tip='Show Table'])["+i+"]"));
+			js.executeScript("arguments[0].scrollIntoView();", button);
+			button.click();
+			Thread.sleep(4000);
+
+		}
+	}
+
+
+	public void clickonShowTableExportButton() throws InterruptedException 
+	{
+		clickOnShowTableButton();
+		js.executeScript("window.scrollTo(0,0)");	
+		List<WebElement> exportButton = driver.findElements(By.xpath("//button[text()='Export']"));
+		int cnt = exportButton.size();
+		for(int i=1; i<= cnt; i++) 
+		{
+			WebElement button = driver.findElement(By.xpath("(//button[text()='Export'])["+i+"]"));
+			js.executeScript("arguments[0].scrollIntoView();", button);
+			button.click();
+			Thread.sleep(4000);
+
+		}
+
+	}
+
+	public void ExportUnitByProductTableData() throws InterruptedException 
+	{
+		//UnitByProduct_Show_Table_Button
+		js.executeScript("arguments[0].scrollIntoView();", UnitByProduct_Show_Table_Button);
+		UnitByProduct_Show_Table_Button.click();
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].scrollIntoView();", tableExportButton);
+		tableExportButton.click();
+		Thread.sleep(10000);
+
+	}
+
+	public ArrayList<String> readProductExcelForPreviousYear() 
+	{
+		ArrayList<String> a = TestUtil.extractExcelContentByColumnIndex(productExcelPath, "data", 2);
+		return a;
+	}
+
+	public ArrayList<String> readProducExcelForCurrentYear() 
+	{
+		ArrayList<String> a = TestUtil.extractExcelContentByColumnIndex(productExcelPath, "data", 1);
+		return a;
+	}
+
+
+	public ArrayList<Integer> getIntegerArray(ArrayList<String> stringArray) 
+	{
+		ArrayList<Integer> result = new ArrayList<Integer>(stringArray.size());
+		for(String stringValue : stringArray) 
+		{ 
+			try {
+				double a= Double.parseDouble(stringValue);
+				result.add((int)a);
+			}catch (Exception e) 
+			{
+
+			}
+		}
+
+		return result;
+	}
+
+	public int getPreviousYearValueForUnitsByProduct() 
+	{
+		js.executeScript("arguments[0].scrollIntoView();", previousYearForUnitsByProduct);
+		String val = previousYearForUnitsByProduct.getText();
+		int intValue = Integer.parseInt(val);
+		return intValue;
+	}
+
+	public int getCurrentYearValueForUnitsByProduct() 
+	{
+		js.executeScript("arguments[0].scrollIntoView();", currentYearForUnitsByProduct);
+		String val = currentYearForUnitsByProduct.getText();
+		int intValue = Integer.parseInt(val);
+		return intValue;
+	}
+
+	//Item Description
+
+	public ArrayList<String> readItemsExcelForPreviousYear() throws InterruptedException 
+	{
+		Thread.sleep(2000);
+		ArrayList<String> a = TestUtil.extractExcelContentByColumnIndex(itemExcelPath, "data", 4);
+		Thread.sleep(2000);
+		return a;
+	}
+
+	public ArrayList<String> readItemExcelForCurrentYear() 
+	{
+		ArrayList<String> a = TestUtil.extractExcelContentByColumnIndex(itemExcelPath, "data", 3);
+		return a;
+	}
+
+
+	public ArrayList<String> readUnitsExcelForConsumables() throws InterruptedException 
+	{
+		Thread.sleep(2000);
+		ArrayList<String> a = TestUtil.extractExcelContentByColumnIndex(consumablesExcelPath, "data", 1);
+		Thread.sleep(2000);
+		return a;
+	}
+
+	public ArrayList<String> readUnitsExcelForDistributor() throws InterruptedException 
+	{
+		Thread.sleep(2000);
+		ArrayList<String> a = TestUtil.extractExcelContentByColumnIndex(distributorExcelPath, "data", 2);
+		Thread.sleep(2000);
+		return a;
+	}
+	
+	
+	public ArrayList<String> readUnitsExcelForCountry() throws InterruptedException 
+	{
+		Thread.sleep(2000);
+		ArrayList<String> a = TestUtil.extractExcelContentByColumnIndex(countryExcelPath, "data", 2);
+		Thread.sleep(2000);
+		return a;
+	}
+	
+	public ArrayList<String> readUnitsExcelForRegion() throws InterruptedException 
+	{
+		Thread.sleep(2000);
+		ArrayList<String> a = TestUtil.extractExcelContentByColumnIndex(regionExcelPath, "data", 2);
+		Thread.sleep(2000);
+		return a;
+	}
+	
+	public ArrayList<String> readUnitsExcelForUnitStatus() throws InterruptedException 
+	{
+		Thread.sleep(2000);
+		ArrayList<String> a = TestUtil.extractExcelContentByColumnIndex(unitStatusExcelPath, "data", 2);
+		Thread.sleep(2000);
+		return a;
+	}
+	
+	public ArrayList<String> readUnitsExcelForMarketSegment() throws InterruptedException 
+	{
+		Thread.sleep(2000);
+		ArrayList<String> a = TestUtil.extractExcelContentByColumnIndex(marketSegmentExcelPath, "data", 1);
+		Thread.sleep(2000);
+		return a;
+	}
+	
+	public ArrayList<String> readUnitsExcelForApplicationSegment() throws InterruptedException 
+	{
+		Thread.sleep(2000);
+		ArrayList<String> a = TestUtil.extractExcelContentByColumnIndex(applicationSegmentExcelPath, "data", 1);
+		Thread.sleep(2000);
+		return a;
+	}
+
+
+	public int getPreviousYearValueForItemByDescription() 
+	{
+		js.executeScript("arguments[0].scrollIntoView();", previousYearForItemByDescription);
+		String val = previousYearForItemByDescription.getText();
+		int intValue = Integer.parseInt(val);
+		return intValue;
+	}
+
+	public int getUnitsForItemByConsumables() 
+	{
+		js.executeScript("arguments[0].scrollIntoView();", unitsForConsumables);
+		String val = unitsForConsumables.getText().trim();
+		int intValue = Integer.parseInt(val);
+		return intValue;
+	}
+
+	public int getUnitsForItemByDistributor() 
+	{
+		js.executeScript("arguments[0].scrollIntoView();", unitsForDistributor);
+		String val = unitsForDistributor.getText().trim();
+		int intValue = Integer.parseInt(val);
+		return intValue;
+	}
+	
+	
+	public int getUnitsForItemByCountry() 
+	{
+		js.executeScript("arguments[0].scrollIntoView();", unitsForCountry);
+		String val = unitsForCountry.getText().trim();
+		int intValue = Integer.parseInt(val);
+		return intValue;
+	}
+	
+	public int getUnitsForItemByMarketSegment() 
+	{
+		js.executeScript("arguments[0].scrollIntoView();", unitsForMarketSegment);
+		String val = unitsForMarketSegment.getText().trim();
+		int intValue = Integer.parseInt(val);
+		return intValue;
+	}
+	
+	public int getUnitsForItemByApplicationSegment() 
+	{
+		js.executeScript("arguments[0].scrollIntoView();", unitsForApplicationSegment);
+		String val = unitsForApplicationSegment.getText().trim();
+		int intValue = Integer.parseInt(val);
+		return intValue;
+	}
+
+	public int getCurrentYearValueForItemByDescription() 
+	{
+		js.executeScript("arguments[0].scrollIntoView();", currentYearForItemByDescription);
+		String val = currentYearForItemByDescription.getText();
+		int intValue = Integer.parseInt(val);
+		return intValue;
+	}
+
+	public void ExportUnitByItemDescriptionTableData() throws InterruptedException 
+	{
+		//UnitByProduct_Show_Table_Button
+		js.executeScript("arguments[0].scrollIntoView();", ItemByDescription_Show_Table_Button);
+		ItemByDescription_Show_Table_Button.click();
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].scrollIntoView();", tableExportButton);
+		tableExportButton.click();
+		Thread.sleep(10000);
+
+	}
+
+
+	public void ExportUnitsByConsumablesTableData() throws InterruptedException 
+	{
+		//UnitByProduct_Show_Table_Button
+		js.executeScript("arguments[0].scrollIntoView();", ItemByConsumables_Show_Table_Button);
+		ItemByConsumables_Show_Table_Button.click();
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].scrollIntoView();", tableExportButton);
+		tableExportButton.click();
+		Thread.sleep(10000);
+
+	}
+
+	public void ExportUnitsByDistributorTableData() throws InterruptedException 
+	{
+		//UnitByProduct_Show_Table_Button
+		js.executeScript("arguments[0].scrollIntoView();", ItemByDistributor_Show_Table_Button);
+		ItemByDistributor_Show_Table_Button.click();
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].scrollIntoView();", tableExportButton);
+		tableExportButton.click();
+		Thread.sleep(10000);
+
+	}
+	
+	public void ExportUnitsByCountryTableData() throws InterruptedException 
+	{
+		//UnitByProduct_Show_Table_Button
+		js.executeScript("arguments[0].scrollIntoView();", ItemByCountries_Show_Table_Button);
+		ItemByCountries_Show_Table_Button.click();
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].scrollIntoView();", tableExportButton);
+		tableExportButton.click();
+		Thread.sleep(10000);
+
+	}
+	
+	public void ExportUnitsByRegionTableData() throws InterruptedException 
+	{
+		//UnitByProduct_Show_Table_Button
+		js.executeScript("arguments[0].scrollIntoView();", ItemByRegion_Show_Table_Button);
+		ItemByRegion_Show_Table_Button.click();
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].scrollIntoView();", tableExportButton);
+		tableExportButton.click();
+		Thread.sleep(10000);
+
+	}
+	
+	public void ExportUnitsByUnitStatusTableData() throws InterruptedException 
+	{
+		//UnitByProduct_Show_Table_Button
+		js.executeScript("arguments[0].scrollIntoView();", ItemByUnitStatus_Show_Table_Button);
+		ItemByUnitStatus_Show_Table_Button.click();
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].scrollIntoView();", tableExportButton);
+		tableExportButton.click();
+		Thread.sleep(10000);
+
+	}
+	
+	public void ExportUnitsByMarketSegmentTableData() throws InterruptedException 
+	{
+		//UnitByProduct_Show_Table_Button
+		js.executeScript("arguments[0].scrollIntoView();", ItemByMarketSegment_Show_Table_Button);
+		ItemByMarketSegment_Show_Table_Button.click();
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].scrollIntoView();", tableExportButton);
+		tableExportButton.click();
+		Thread.sleep(10000);
+
+	}
+	
+	public void ExportUnitsByApplicationSegmentTableData() throws InterruptedException 
+	{
+		//UnitByProduct_Show_Table_Button
+		js.executeScript("arguments[0].scrollIntoView();", ItemByApplicationSegment_Show_Table_Button);
+		ItemByApplicationSegment_Show_Table_Button.click();
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].scrollIntoView();", tableExportButton);
+		tableExportButton.click();
+		Thread.sleep(10000);
+
+	}
+	
+
+
+}

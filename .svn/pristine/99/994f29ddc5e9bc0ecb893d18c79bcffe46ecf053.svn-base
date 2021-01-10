@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <listeners>
+    <listener class-name="extentReportListner.ExtentReporterNG"/>
+  </listeners>
+  <test name="tDashboard(failed)" parallel="tests">
+    <classes>
+      <class name="testcases.DashBoardTest">
+        <methods>
+          <include name="verify_Search_Parameter"/>
+          <include name="tearDown"/>
+          <include name="get_Search_Parameter"/>
+          <include name="setup"/>
+          <include name="verify_All_Links_Status_Test"/>
+        </methods>
+      </class> <!-- testcases.DashBoardTest -->
+    </classes>
+  </test> <!-- tDashboard(failed) -->
+</suite> <!-- Failed suite [Suite] -->

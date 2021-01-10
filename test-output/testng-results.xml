@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="69043" started-at="2020-06-21T18:26:54Z" finished-at="2020-06-21T18:28:03Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="69043" started-at="2020-06-21T18:26:54Z" finished-at="2020-06-21T18:28:03Z">
+      <class name="testcases.DashBoardTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testcases.DashBoardTest@4167d97b]" name="setup" is-config="true" duration-ms="12912" started-at="2020-06-21T23:56:54Z" finished-at="2020-06-21T23:57:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="Units_By_Distributor_Verify_Units_Test()[pri:0, instance:testcases.DashBoardTest@4167d97b]" name="Units_By_Distributor_Verify_Units_Test" duration-ms="55111" started-at="2020-06-21T23:57:07Z" finished-at="2020-06-21T23:58:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Units_By_Distributor_Verify_Units_Test -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:testcases.DashBoardTest@4167d97b]" name="tearDown" is-config="true" duration-ms="728" started-at="2020-06-21T23:58:02Z" finished-at="2020-06-21T23:58:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Units_By_Distributor_Verify_Units_Test status=SUCCESS method=DashBoardTest.Units_By_Distributor_Verify_Units_Test()[pri:0, instance:testcases.DashBoardTest@4167d97b] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testcases.DashBoardTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

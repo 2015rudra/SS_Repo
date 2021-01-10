@@ -1,0 +1,159 @@
+<html>
+<head>
+<title>TestNG:  Login</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Login</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>16/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sat May 23 20:13:26 IST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>487 seconds (487066 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testcases.DashBoardTest.BIT_E70_verify_All_Links_Status_Test()'><b>BIT_E70_verify_All_Links_Status_Test</b><br>Test class: testcases.DashBoardTest</td>
+<td></td>
+<td>10</td>
+<td>testcases.DashBoardTest@3b2cf7ab</td></tr>
+<tr>
+<td title='testcases.DashBoardTest.Export_Tables_Test()'><b>Export_Tables_Test</b><br>Test class: testcases.DashBoardTest</td>
+<td></td>
+<td>78</td>
+<td>testcases.DashBoardTest@3b2cf7ab</td></tr>
+<tr>
+<td title='testcases.DashBoardTest.Get_Search_Parameter_Test()'><b>Get_Search_Parameter_Test</b><br>Test class: testcases.DashBoardTest</td>
+<td></td>
+<td>0</td>
+<td>testcases.DashBoardTest@3b2cf7ab</td></tr>
+<tr>
+<td title='testcases.LoginPageTest.Login_Functionality_For_Invalid_Password()'><b>Login_Functionality_For_Invalid_Password</b><br>Test class: testcases.LoginPageTest</td>
+<td></td>
+<td>2</td>
+<td>testcases.LoginPageTest@3a079870</td></tr>
+<tr>
+<td title='testcases.LoginPageTest.Login_Functionality_For_Invalid_Username()'><b>Login_Functionality_For_Invalid_Username</b><br>Test class: testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>testcases.LoginPageTest@3a079870</td></tr>
+<tr>
+<td title='testcases.LoginPageTest.Login_Functionality_For_Invalid_Username_And_Password()'><b>Login_Functionality_For_Invalid_Username_And_Password</b><br>Test class: testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>testcases.LoginPageTest@3a079870</td></tr>
+<tr>
+<td title='testcases.LoginPageTest.Login_To_Sales_Suite_Test()'><b>Login_To_Sales_Suite_Test</b><br>Test class: testcases.LoginPageTest</td>
+<td></td>
+<td>3</td>
+<td>testcases.LoginPageTest@3a079870</td></tr>
+<tr>
+<td title='testcases.DashBoardTest.Verify_Graph_Names_on_Dashboard_Test()'><b>Verify_Graph_Names_on_Dashboard_Test</b><br>Test class: testcases.DashBoardTest</td>
+<td></td>
+<td>1</td>
+<td>testcases.DashBoardTest@3b2cf7ab</td></tr>
+<tr>
+<td title='testcases.DashBoardTest.Verify_Graphs_Displayed_On_Dashboard()'><b>Verify_Graphs_Displayed_On_Dashboard</b><br>Test class: testcases.DashBoardTest</td>
+<td></td>
+<td>1</td>
+<td>testcases.DashBoardTest@3b2cf7ab</td></tr>
+<tr>
+<td title='testcases.LoginPageTest.Verify_Login_Page_Title_Test()'><b>Verify_Login_Page_Title_Test</b><br>Test class: testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>testcases.LoginPageTest@3a079870</td></tr>
+<tr>
+<td title='testcases.DashBoardTest.Verify_Product_Status_Values_Test()'><b>Verify_Product_Status_Values_Test</b><br>Test class: testcases.DashBoardTest</td>
+<td></td>
+<td>0</td>
+<td>testcases.DashBoardTest@3b2cf7ab</td></tr>
+<tr>
+<td title='testcases.DashBoardTest.Verify_Profile_Center_Values_Test()'><b>Verify_Profile_Center_Values_Test</b><br>Test class: testcases.DashBoardTest</td>
+<td></td>
+<td>0</td>
+<td>testcases.DashBoardTest@3b2cf7ab</td></tr>
+<tr>
+<td title='testcases.DashBoardTest.Verify_Search_Parameter_Test()'><b>Verify_Search_Parameter_Test</b><br>Test class: testcases.DashBoardTest</td>
+<td></td>
+<td>0</td>
+<td>testcases.DashBoardTest@3b2cf7ab</td></tr>
+<tr>
+<td title='testcases.DashBoardTest.Verify_Show_Table_Button_Test()'><b>Verify_Show_Table_Button_Test</b><br>Test class: testcases.DashBoardTest</td>
+<td></td>
+<td>68</td>
+<td>testcases.DashBoardTest@3b2cf7ab</td></tr>
+<tr>
+<td title='testcases.DashBoardTest.verify_Graph_Image_Download_Test()'><b>verify_Graph_Image_Download_Test</b><br>Test class: testcases.DashBoardTest</td>
+<td></td>
+<td>39</td>
+<td>testcases.DashBoardTest@3b2cf7ab</td></tr>
+<tr>
+<td title='testcases.LoginPageTest.verify_alert_Text_Test()'><b>verify_alert_Text_Test</b><br>Test class: testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>testcases.LoginPageTest@3a079870</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<h2>Methods run, sorted chronologically</h2><h3>&gt;&gt; means before, &lt;&lt; means after</h3><p/><br/><em>Suite</em><p/><small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table border="1">
+<tr><th>Time</th><th>Delta (ms)</th><th>Suite<br>configuration</th><th>Test<br>configuration</th><th>Class<br>configuration</th><th>Groups<br>configuration</th><th>Method<br>configuration</th><th>Test<br>method</th><th>Thread</th><th>Instances</th></tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:13:26</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;DashBoardTest.setup()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:13:43</td>   <td>16994</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="DashBoardTest.BIT_E70_verify_All_Links_Status_Test()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">BIT_E70_verify_All_Links_Status_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:13:54</td>   <td>27592</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;DashBoardTest.tearDown(org.testng.ITestResult)[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:13:54</td>   <td>28291</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;DashBoardTest.setup()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:14:09</td>   <td>42720</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="DashBoardTest.Export_Tables_Test()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">Export_Tables_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:15:27</td>   <td>121479</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;DashBoardTest.tearDown(org.testng.ITestResult)[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:15:29</td>   <td>122543</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;DashBoardTest.setup()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:15:39</td>   <td>133378</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="DashBoardTest.Get_Search_Parameter_Test()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">Get_Search_Parameter_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:15:40</td>   <td>133515</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;DashBoardTest.tearDown(org.testng.ITestResult)[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:15:40</td>   <td>134231</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;DashBoardTest.setup()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:15:56</td>   <td>150082</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="DashBoardTest.Verify_Graph_Names_on_Dashboard_Test()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">Verify_Graph_Names_on_Dashboard_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:15:58</td>   <td>151611</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;DashBoardTest.tearDown(org.testng.ITestResult)[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:15:59</td>   <td>152782</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;DashBoardTest.setup()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:11</td>   <td>164579</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="DashBoardTest.Verify_Graphs_Displayed_On_Dashboard()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">Verify_Graphs_Displayed_On_Dashboard</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:12</td>   <td>166137</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;DashBoardTest.tearDown(org.testng.ITestResult)[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:13</td>   <td>166882</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;DashBoardTest.setup()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:27</td>   <td>181326</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="DashBoardTest.Verify_Product_Status_Values_Test()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">Verify_Product_Status_Values_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:28</td>   <td>181623</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;DashBoardTest.tearDown(org.testng.ITestResult)[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:29</td>   <td>183423</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;DashBoardTest.setup()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:40</td>   <td>193979</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="DashBoardTest.Verify_Profile_Center_Values_Test()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">Verify_Profile_Center_Values_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:40</td>   <td>194247</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;DashBoardTest.tearDown(org.testng.ITestResult)[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:41</td>   <td>195024</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;DashBoardTest.setup()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:54</td>   <td>207569</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="DashBoardTest.Verify_Search_Parameter_Test()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">Verify_Search_Parameter_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:54</td>   <td>207863</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;DashBoardTest.tearDown(org.testng.ITestResult)[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:16:56</td>   <td>210358</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;DashBoardTest.setup()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:17:09</td>   <td>222935</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="DashBoardTest.Verify_Show_Table_Button_Test()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">Verify_Show_Table_Button_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:18:18</td>   <td>291566</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;DashBoardTest.tearDown(org.testng.ITestResult)[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:18:19</td>   <td>293031</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;DashBoardTest.setup()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:19:10</td>   <td>344403</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="DashBoardTest.verify_Graph_Image_Download_Test()[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">verify_Graph_Image_Download_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="bb6bea">  <td>20/05/23 20:19:50</td>   <td>384092</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;DashBoardTest.tearDown(org.testng.ITestResult)[pri:0, instance:testcases.DashBoardTest@3b2cf7ab]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:19:51</td>   <td>384801</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;LoginPageTest.setup()[pri:0, instance:testcases.LoginPageTest@3a079870]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:20:22</td>   <td>415638</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="LoginPageTest.Verify_Login_Page_Title_Test()[pri:1, instance:testcases.LoginPageTest@3a079870]">Verify_Login_Page_Title_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:20:22</td>   <td>415656</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;LoginPageTest.tearDown()[pri:0, instance:testcases.LoginPageTest@3a079870]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:20:22</td>   <td>416367</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;LoginPageTest.setup()[pri:0, instance:testcases.LoginPageTest@3a079870]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:20:44</td>   <td>438445</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="LoginPageTest.Login_Functionality_For_Invalid_Password()[pri:2, instance:testcases.LoginPageTest@3a079870]">Login_Functionality_For_Invalid_Password</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:20:47</td>   <td>441114</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;LoginPageTest.tearDown()[pri:0, instance:testcases.LoginPageTest@3a079870]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:20:48</td>   <td>441813</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;LoginPageTest.setup()[pri:0, instance:testcases.LoginPageTest@3a079870]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:21:05</td>   <td>458501</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="LoginPageTest.Login_Functionality_For_Invalid_Username()[pri:3, instance:testcases.LoginPageTest@3a079870]">Login_Functionality_For_Invalid_Username</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:21:05</td>   <td>459407</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;LoginPageTest.tearDown()[pri:0, instance:testcases.LoginPageTest@3a079870]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:21:06</td>   <td>460141</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;LoginPageTest.setup()[pri:0, instance:testcases.LoginPageTest@3a079870]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:21:14</td>   <td>468190</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="LoginPageTest.Login_Functionality_For_Invalid_Username_And_Password()[pri:4, instance:testcases.LoginPageTest@3a079870]">Login_Functionality_For_Invalid_Username_And_Password</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:21:15</td>   <td>469139</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;LoginPageTest.tearDown()[pri:0, instance:testcases.LoginPageTest@3a079870]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:21:16</td>   <td>469815</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;LoginPageTest.setup()[pri:0, instance:testcases.LoginPageTest@3a079870]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:21:21</td>   <td>475153</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="LoginPageTest.Login_To_Sales_Suite_Test()[pri:5, instance:testcases.LoginPageTest@3a079870]">Login_To_Sales_Suite_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:21:25</td>   <td>478802</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;LoginPageTest.tearDown()[pri:0, instance:testcases.LoginPageTest@3a079870]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:21:26</td>   <td>479548</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;LoginPageTest.setup()[pri:0, instance:testcases.LoginPageTest@3a079870]">&gt;&gt;setup</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:21:31</td>   <td>485281</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="LoginPageTest.verify_alert_Text_Test()[pri:6, instance:testcases.LoginPageTest@3a079870]">verify_alert_Text_Test</td> 
+  <td>main@1115201599</td>   <td></td> </tr>
+<tr bgcolor="beaa89">  <td>20/05/23 20:21:32</td>   <td>486221</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;LoginPageTest.tearDown()[pri:0, instance:testcases.LoginPageTest@3a079870]">&lt;&lt;tearDown</td> 
+<td>&nbsp;</td>  <td>main@1115201599</td>   <td></td> </tr>
+</table>

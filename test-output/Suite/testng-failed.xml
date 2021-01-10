@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="extentReportListner.ExtentReporterNG"/>
+  </listeners>
+  <test name="Login(failed)">
+    <classes>
+      <class name="testcases.ProductSalesTest">
+        <methods>
+          <include name="Verify_Region_Dropdown_Values_For_Product_Sales_Test"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- testcases.ProductSalesTest -->
+      <class name="testcases.YOYTest">
+        <methods>
+          <include name="Verify_Region_Dropdown_Values_For_YOY_Test"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- testcases.YOYTest -->
+    </classes>
+  </test> <!-- Login(failed) -->
+</suite> <!-- Failed suite [Suite] -->

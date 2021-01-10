@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+<listeners><listener class-name="Retry.MyTransformer"/> </listeners>
+<listeners> <listener class-name="extentReportListner.ExtentReporterNG" /></listeners>
+  
+  <test name="Login">
+    <classes>
+      <class name="testcases.LoginPageTest"/>
+      <class name="testcases.DashBoardTest"/>
+      <class name="testcases.ProductSalesTest"/>
+      <class name="testcases.YOYTest"/>
+      <class name="testcases.ConfigurationTest"/>
+      <class name="testcases.AboutTest"/>
+    </classes>
+  </test> <!-- testng.xml -->
+   
+</suite> <!-- Suite -->

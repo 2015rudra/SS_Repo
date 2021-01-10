@@ -1,0 +1,251 @@
+package testcases;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import pages.DashBoardPage;
+import pages.LoginPage;
+import testBase.TestBase;
+import utility.TestUtil;
+
+public class DashBoardTest extends TestBase
+{
+
+	LoginPage loginPage;
+	DashBoardPage dashboard;
+	TestUtil util;
+	JavascriptExecutor js;
+	//String downloadPath = "D:\\Sales_Suite_Download";
+	String TESTDATA_SHEET_PATH = "D:\\Practise\\SalesSuite\\src\\main\\java\\testdata\\TestData.xlsx";
+	
+	
+
+	boolean status;
+
+	public DashBoardTest() throws IOException {
+		super();
+		 
+	}
+
+	
+	
+	@BeforeMethod
+	public void setup() throws IOException, InterruptedException 
+	{
+		initilization();
+		loginPage = new LoginPage();
+		dashboard = new DashBoardPage();
+		util = new TestUtil();
+		
+		js = (JavascriptExecutor) driver;
+		dashboard = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		status = dashboard.verifyLoginSuccessfull();
+		Assert.assertTrue(status, "Login Unsuccessful");
+	}
+
+
+	//This test verify if all link(LHS - Links) are loading
+	@Test 
+	public void BIT_E70_verify_All_Links_Status_Test() throws IOException,InterruptedException 
+	{ 
+		dashboard.verifyAllLinksWorking(); 
+	}
+
+	@Test 
+	public void Get_Search_Parameter_Test() throws IOException,InterruptedException 
+	{ 
+		dashboard.getSearchParameter(); 
+	}
+
+	
+	//This test verify search displayed as same as maintained in excel file
+	@Test
+	public void Verify_Search_Parameter_Test() 
+	{
+		ArrayList<String> parameterActual = dashboard.verifySearchParameters();
+		ArrayList<String> parameterexpected = TestUtil.extractExcelContentByColumnIndex(TESTDATA_SHEET_PATH,"Dashboard_TestData",5);
+		Assert.assertEquals(parameterActual, parameterexpected);
+	}
+
+	
+	//This test verify if Graphs are displayed
+	@Test
+	public void Verify_Graphs_Displayed_On_Dashboard() 
+	{
+
+		ArrayList<Boolean> graphPresent = dashboard.graphsOnDashboard();	
+		int cnt = graphPresent.size(); 
+		for(int i=1;i<cnt;i++) 
+		{
+			Assert.assertTrue(graphPresent.get(i).booleanValue(), "Graphs not present"); 
+		}
+
+	}
+
+	//This test verify Graph Names displayed on Dash-board
+	@Test
+	public void Verify_Graph_Names_on_Dashboard_Test() 
+	{	
+		ArrayList<String> actual = dashboard.getGraphTitle();	
+		ArrayList<String> expected = TestUtil.extractExcelContentByColumnIndex(TESTDATA_SHEET_PATH,"Dashboard_TestData",0);	
+		Assert.assertEquals(actual, expected);	
+	}
+	
+	
+	//This test verifies Profile Center drop-down values
+	@Test
+	public void Verify_Profile_Center_Values_Test() 
+	{
+		ArrayList<String> actual = dashboard.getProfileCenterValues();
+		ArrayList<String> expected = TestUtil.extractExcelContentByColumnIndex(TESTDATA_SHEET_PATH,"Dashboard_TestData",1);
+		Assert.assertEquals(actual, expected);
+		
+	}
+	
+	//This test verifies Product Status drop-down values
+	@Test
+	public void Verify_Product_Status_Values_Test() 
+	{
+		ArrayList<String> actual = dashboard.getProductStatusValues();
+		ArrayList<String> expected = TestUtil.extractExcelContentByColumnIndex(TESTDATA_SHEET_PATH,"Dashboard_TestData",2);
+		Assert.assertEquals(actual, expected);
+		
+	}
+	
+	
+	//This test is to verify save image for every graph on Dash-board
+	@Test
+	public void verify_Graph_Image_Download_Test() throws InterruptedException 
+	{
+		dashboard.cleanUpDownloadFolder();
+		dashboard.clickanddownloadGraphImage();
+		ArrayList<String> fileNameActual = dashboard.getFileNames();
+		ArrayList<String> fileNameExpected = TestUtil.extractExcelContentByColumnIndex(TESTDATA_SHEET_PATH, "Dashboard_TestData",3);
+		Assert.assertEquals(fileNameActual, fileNameExpected);
+	}
+	
+	
+	//This test is to verify if Show Table button is displayed on every graph
+	@Test
+	public void Verify_Show_Table_Button_Test() throws InterruptedException 
+	{
+		boolean flag = false;
+		dashboard.clickOnShowTableButton();
+		List<WebElement> tables = driver.findElements(By.xpath("div[@class='col-11']"));
+		js.executeScript("window.scrollTo(0,0)");
+		int size = tables.size();
+		for(int i=1;i<=size;i++) 
+		{
+			WebElement showTable = driver.findElement(By.xpath("(div[@class='col-11'])["+i+"]"));
+			js.executeScript("arguments[0].scrollIntoView();", showTable);
+			flag = showTable.isDisplayed();
+			Thread.sleep(4000);
+			Assert.assertTrue(flag, "Show Table not displated");
+		}
+		
+	}
+	
+	//This test is to verify Export Table functionality on every graph
+	@Test
+	public void Export_Tables_Test() throws InterruptedException 
+	{
+		dashboard.cleanUpDownloadFolder();
+		dashboard.clickonShowTableExportButton();
+		ArrayList<String> fileNameActual = dashboard.getFileNames();
+		ArrayList<String> fileNameExpected = TestUtil.extractExcelContentByColumnIndex(TESTDATA_SHEET_PATH, "Dashboard_TestData",4);
+		Assert.assertEquals(fileNameActual, fileNameExpected);
+	}
+
+	
+	//This test is to verify: Show Table, Export and Verify Previous year and Current year total with Excel and UI for Unit By Product Graph
+	@Test
+	public void Units_By_Product_Verify_Previous_Current_Value_Test() throws InterruptedException 
+	{
+		
+		dashboard.ExportUnitByProductTableData();
+		ArrayList<String> previousYear_productExcelInString = dashboard.readProductExcelForPreviousYear();
+		ArrayList<Integer> py_productExcelInInteger = dashboard.getIntegerArray(previousYear_productExcelInString);
+		int intSumPY = (int) py_productExcelInInteger.stream().mapToLong(Integer::longValue).sum();
+		js.executeScript("window.scrollTo(0,0)");
+		int actualPY = dashboard.getPreviousYearValueForUnitsByProduct();
+		
+		Assert.assertEquals(intSumPY, actualPY);
+		
+		ArrayList<String> currentYear_productExcelInString = dashboard.readProducExcelForCurrentYear();
+		ArrayList<Integer> cy_productExcelInInteger = dashboard.getIntegerArray(currentYear_productExcelInString);
+		int intSumCY = (int) cy_productExcelInInteger.stream().mapToLong(Integer::longValue).sum();
+		js.executeScript("window.scrollTo(0,0)");
+		int actualCY = dashboard.getCurrentYearValueForUnitsByProduct();
+		
+		Assert.assertEquals(intSumCY, actualCY);
+		
+		//CleanUp The folder
+		dashboard.cleanUpDownloadFolder();
+	}
+	
+	
+	//This test is to verify: Show Table, Export and Verify Previous year and Current year total with Excel and UI for Item By Description Graph
+	@Test
+	public void Units_By_Item_Description_Verify_Previous_Current_Value_Test() throws InterruptedException 
+	{
+		dashboard.ExportUnitByItemDescriptionTableData();
+		ArrayList<String> previousYear_itemExcelInString = dashboard.readItemsExcelForPreviousYear();
+		ArrayList<Integer> py_itemExcelInInteger = dashboard.getIntegerArray(previousYear_itemExcelInString);
+		int intSumPY = (int) py_itemExcelInInteger.stream().mapToLong(Integer::longValue).sum();
+		js.executeScript("window.scrollTo(0,0)");
+		int actualPY = dashboard.getPreviousYearValueForItemByDescription();
+		
+		Assert.assertEquals(intSumPY, actualPY);
+		
+		ArrayList<String> currentYear_productExcelInString = dashboard.readItemExcelForCurrentYear();
+		ArrayList<Integer> cy_productExcelInInteger = dashboard.getIntegerArray(currentYear_productExcelInString);
+		int intSumCY = (int) cy_productExcelInInteger.stream().mapToLong(Integer::longValue).sum();
+		js.executeScript("window.scrollTo(0,0)");
+		int actualCY = dashboard.getCurrentYearValueForItemByDescription();
+		
+		Assert.assertEquals(intSumCY, actualCY);
+		
+		//CleanUp The folder
+		dashboard.cleanUpDownloadFolder();
+	}
+
+
+	@AfterMethod
+	public void tearDown(ITestResult result) 
+	{
+		if(ITestResult.FAILURE==result.getStatus())
+		{
+			try 
+			{
+				TakesScreenshot ts=(TakesScreenshot)driver;
+				File source=ts.getScreenshotAs(OutputType.FILE);
+				FileUtils.copyFile(source, new File("./Screenshots/"+result.getName()+".jpg"));
+				System.out.println("Screenshot taken");
+			} 
+			catch (Exception e)
+			{
+				System.out.println("Exception while taking screenshot "+e.getMessage());
+			} 
+		}
+		
+		dashboard.cleanUpDownloadFolder();
+		driver.quit();
+		
+	}
+	
+	
+}

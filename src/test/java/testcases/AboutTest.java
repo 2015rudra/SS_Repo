@@ -1,0 +1,100 @@
+package testcases;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import pages.AboutPage;
+import pages.ConfigurationPage;
+import pages.DashBoardPage;
+import pages.LoginPage;
+import testBase.TestBase;
+import utility.TestUtil;
+
+public class AboutTest extends TestBase
+{
+
+	LoginPage loginPage;
+	DashBoardPage dashboard;
+	TestUtil util;
+	JavascriptExecutor js;
+	AboutPage about;
+
+	String TESTDATA_SHEET_PATH = "D:\\Practise\\SalesSuite_Automation\\src\\main\\java\\testdata\\TestData.xlsx";
+	
+	
+	boolean status;
+	boolean page;
+	
+	
+	public AboutTest() throws IOException 
+	{
+		super();
+		
+	}
+	
+	@BeforeMethod
+	public void setup() throws IOException, InterruptedException 
+	{
+		initilization();
+		loginPage = new LoginPage();
+		dashboard = new DashBoardPage();
+		util = new TestUtil();
+		about = new AboutPage();
+		js = (JavascriptExecutor) driver;
+		dashboard = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		status = dashboard.verifyLoginSuccessfull();
+		Assert.assertTrue(status, "Login Unsuccessful");
+		about = dashboard.navigateOnAbout();
+		page = about.confirmAbout();
+		Assert.assertTrue(page, "About Page not displayed properly");
+	}
+	
+	
+	@Test
+	public void Verify_About_Page_Disclaimer_Context() 
+	{
+		ArrayList<Boolean> presenceFlag = about.getAboutText();
+		for(Boolean a: presenceFlag) 
+		{
+			Assert.assertTrue(a, "Presenece flag not matched");
+		}
+		log.info("Verifying about page context presence");
+	}
+	
+	
+	
+	
+	@AfterMethod
+	public void tearDown(ITestResult result) 
+	{
+		if(ITestResult.FAILURE==result.getStatus())
+		{
+			try 
+			{
+				TakesScreenshot ts=(TakesScreenshot)driver;
+				File source=ts.getScreenshotAs(OutputType.FILE);
+				FileUtils.copyFile(source, new File("./Screenshots/"+result.getName()+".jpg"));
+				System.out.println("Screenshot taken");
+			} 
+			catch (Exception e)
+			{
+				System.out.println("Exception while taking screenshot "+e.getMessage());
+			} 
+		}
+
+		dashboard.cleanUpDownloadFolder();
+		driver.quit();
+	}
+
+}

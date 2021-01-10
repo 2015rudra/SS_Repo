@@ -1,0 +1,142 @@
+package testcases;
+
+import static org.testng.Assert.assertEquals;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import pages.DashBoardPage;
+import pages.LoginPage;
+import testBase.TestBase;
+
+public class LoginPageTest extends TestBase
+
+{
+
+	LoginPage loginPage;
+	DashBoardPage dashboard;
+	
+
+	boolean aa = false;
+
+	public LoginPageTest() throws IOException 
+	{
+		super();
+
+	}
+
+
+	@BeforeMethod
+	public void setup() throws IOException 
+	{
+		initilization();
+		loginPage = new LoginPage();
+		dashboard = new DashBoardPage();
+	}
+
+
+
+	@Test(priority = 1) 
+	public void Verify_Login_Page_Title_Test() 
+	{ 
+		String loginTitle = loginPage.getPageTitle();
+		log.info("Getting Login Page title");
+		assertEquals(loginTitle, "Sales Suite"); 
+		log.info("Asserting Login Title");
+	}
+
+	@Test (priority = 5)
+	public void Login_To_Sales_Suite_Test() throws IOException, InterruptedException 
+	{ 
+		dashboard = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		boolean status = dashboard.verifyLoginSuccessfull();
+		Assert.assertTrue(status, "Login Unsuccessful!!!");
+	}
+
+
+
+	@Test(priority = 2 )
+	public void Login_Functionality_For_Invalid_Password() 
+	{
+
+		aa = loginPage.loginFunctionalityForInvaildPassword();
+		if(aa == true) 
+		{
+			System.out.println("Alert Displayed");
+		}
+		else 
+		{
+			System.out.println("Alert not displayed");
+		}
+	}
+
+	@Test (priority = 3)
+	public void Login_Functionality_For_Invalid_Username() 
+	{
+
+		aa = loginPage.loginFunctionalityForInvaildUsername();
+		if(aa == true) 
+		{
+			System.out.println("Alert Displayed");
+		}
+		else 
+		{
+			System.out.println("Alert not displayed");
+		}
+	}
+	
+	@Test (priority = 4)
+	public void Login_Functionality_For_Invalid_Username_And_Password() 
+	{
+
+		aa = loginPage.loginFunctionalityForInvaildUsernameAndPassword();
+		if(aa == true) 
+		{
+			System.out.println("Alert Displayed");
+		}
+		else 
+		{
+			System.out.println("Alert not displayed");
+		}
+	}
+	
+	@Test(priority = 6)
+	public void verify_alert_Text_Test() 
+	{
+		String alertText = loginPage.getAlertText();
+		Assert.assertEquals(alertText, "Username and password incorrect");
+		
+	}
+
+
+	@AfterMethod
+	public void tearDown(ITestResult result) 
+	{
+		if(ITestResult.FAILURE==result.getStatus())
+		{
+			try 
+			{
+				TakesScreenshot ts=(TakesScreenshot)driver;
+				File source=ts.getScreenshotAs(OutputType.FILE);
+				FileUtils.copyFile(source, new File("./Screenshots/"+result.getName()+".jpg"));
+				System.out.println("Screenshot taken");
+			} 
+			catch (Exception e)
+			{
+				System.out.println("Exception while taking screenshot "+e.getMessage());
+			} 
+		}
+		
+		dashboard.cleanUpDownloadFolder();
+		driver.quit();
+	}
+}

@@ -1,0 +1,10 @@
+2020-05-28 21:26:27,120  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-05-28 21:26:41,187  INFO [main] devpinoyLogger:82 - Loading Chrome Browser
+2020-05-28 21:26:43,609  INFO [main] devpinoyLogger:84 - Getting Application URL
+2020-05-28 21:26:43,617  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-05-28 21:26:43,657  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-05-28 21:26:43,690  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-05-28 21:26:43,696  INFO [main] devpinoyLogger:36 - Loading Properties File
+2020-05-28 21:26:43,932  INFO [main] devpinoyLogger:52 - Getting Login Page title
+2020-05-28 21:26:43,935  INFO [main] devpinoyLogger:54 - Asserting Login Title
+2020-05-28 21:26:48,901  INFO [main] devpinoyLogger:82 - Loading Chrome Browser

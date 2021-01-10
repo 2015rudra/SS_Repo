@@ -1,0 +1,60 @@
+package pages;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import config.GlobalThings;
+import testBase.TestBase;
+import utility.TestUtil;
+
+public class AboutPage extends TestBase
+{
+	TestUtil util;
+	WebDriverWait wait;
+	DashBoardPage dashboard;
+	
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	
+	@FindBy(xpath="//div[contains(text(),'About Sales Suite')]")
+	WebElement aboutHeader;
+
+	public AboutPage() throws IOException 
+	{
+		super();
+		PageFactory.initElements(driver, this);
+		util = new TestUtil();
+		dashboard = new DashBoardPage();
+	}
+	
+	public boolean confirmAbout() 
+	{
+		TestUtil.waitForAnObject(driver, aboutHeader, GlobalThings.microWait);
+		return aboutHeader.isDisplayed();
+	}
+	
+	public ArrayList<Boolean> getAboutText() 
+	{
+		List<WebElement> a = driver.findElements(By.xpath("//div[@class='main-panel col-md-10']//p"));
+		ArrayList<Boolean> text = new ArrayList<Boolean>();
+		
+		int cnt = a.size();
+		
+		for (int i=1; i<=cnt; i++) 
+		{
+			WebElement texts = driver.findElement(By.xpath("//div[@class='main-panel col-md-10']//p["+i+"]"));
+			TestUtil.waitForAnObject(driver, texts, GlobalThings.microWait);
+			text.add(texts.isDisplayed());
+		}
+		
+		return text;
+	}
+
+}
